@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:25:51 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/31 15:37:45 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_file_end(char *str);
 int	check_elements(char *file);
 //int	check_player(char *file);
 
-void	check_textures(t_data *data, char *file);
+int		check_textures(t_data *data, char *file);
 int	check_all(int argc, char **argv, t_data *data);
 
 //PROTECTED FUNCTIONS

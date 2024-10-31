@@ -6,13 +6,13 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:42:48 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:25:35 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/10/31 15:45:26 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void	check_textures(t_data *data, char *file)
+static void	get_textures_path(t_data *data, char *file)
 {
 	int		fd;
 	char	*line;
@@ -44,5 +44,19 @@ void	check_textures(t_data *data, char *file)
 		free(line);
 		line = get_next_line(fd);
 	}
+	close (fd);
 	printf("END of check_textures\n");
+}
+
+int	check_textures(t_data *data, char *file)
+{
+	get_textures_path(data, file);
+	if (!data->north || !data->south ||!data->west
+		|| !data->west)
+	{
+		ft_putstr_fd("Error\nA texture path is missing.\n", 2);
+		return (1);
+	}
+	printf("check_textures OK\n");
+	return (0);
 }
