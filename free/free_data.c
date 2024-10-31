@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:20:02 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/31 15:16:22 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/31 15:17:28 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
+#include "../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+void	free_data(t_data *data)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
-		return (1);
-	printf("argv = %s", argv[1]);
-	return (0);
+	free(data->north);
+	free(data->south);
+	free(data->west);
+	free(data->east);
+	free(data->floor);
+	free(data->ceiling);
 }

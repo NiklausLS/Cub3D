@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
+/*   By: chuchard <chuchard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:20:02 by nileempo         ###   ########.fr       */
+/*   Created: 2022/11/07 16:16:34 by chuchard          #+#    #+#             */
+/*   Updated: 2022/11/10 14:33:11 by chuchard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
-	t_data	data;
+	int	i;
 
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
-		return (1);
-	printf("argv = %s", argv[1]);
-	return (0);
+	i = 0;
+	while (((char *)str)[i])
+		i++;
+	return (i);
 }

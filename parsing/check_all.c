@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:20:02 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/13 19:08:23 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/31 15:12:05 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
+#include "../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+//CHECK SI PLAYER & SI UN SEUL PLAYER
+//CHECK POUR LES ESPACES VIDES
+
+int	check_all(int argc, char **argv, t_data *data)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
+	if (check_argc(argc) == 1)
 		return (1);
-	printf("argv = %s", argv[1]);
+	if (check_if_dir(argv[1]) == 1)
+		return (1);
+	if (check_file_end(argv[1]) == 1)
+		return (1);
+	check_textures(data, argv[1]);
+	printf("check_all OK\n");
 	return (0);
 }

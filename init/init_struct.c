@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:20:02 by nileempo         ###   ########.fr       */
+/*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
+/*   Updated: 2024/10/31 15:15:25 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
+#include "../includes/cub3D.h"
 
-int	main(int argc, char **argv)
+void	init_data(t_data *data)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
-		return (1);
-	printf("argv = %s", argv[1]);
-	return (0);
+	data->north = NULL;
+	data->south = NULL;
+	data->west = NULL;
+	data->east = NULL;
+	data->floor = NULL;
+	data->ceiling = NULL;
 }

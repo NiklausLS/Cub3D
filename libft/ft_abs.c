@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
+/*   By: chuchard <chuchard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:20:02 by nileempo         ###   ########.fr       */
+/*   Created: 2022/12/20 12:52:04 by chuchard          #+#    #+#             */
+/*   Updated: 2022/12/28 18:22:50 by chuchard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
-
-int	main(int argc, char **argv)
+int	ft_abs(int nb)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
-		return (1);
-	printf("argv = %s", argv[1]);
-	return (0);
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }
