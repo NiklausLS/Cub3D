@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/01 23:54:23 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:12:03 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
-
+# include "../minilibx/minilibx_linux/mlx.h"
+# include "../minilibx/minilibx_mac/mlx.h"
 
 typedef struct s_data
 {

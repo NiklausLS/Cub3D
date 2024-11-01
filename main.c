@@ -6,12 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:02:24 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:12:10 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3D.h"
-#include "minilibx/minilibx-linux/mlx.h"
 
 //map size ?
 //touches
