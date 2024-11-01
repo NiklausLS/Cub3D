@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_struct.c                                      :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/01 23:38:02 by nileempo         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "mlx_int.h"
 
-void	init_data(t_data *data)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	data->north = NULL;
-	data->south = NULL;
-	data->west = NULL;
-	data->east = NULL;
-	data->floor = NULL;
-	data->ceiling = NULL;
-
-	data->mlx = NULL;
-	data->window = NULL;
+	XCloseDisplay(xvar->display);
 }

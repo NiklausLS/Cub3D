@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:02:24 by nileempo         ###   ########.fr       */
+/*   Created: 2024/11/01 23:34:15 by nileempo          #+#    #+#             */
+/*   Updated: 2024/11/01 23:41:49 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
-#include "minilibx/minilibx-linux/mlx.h"
+#include "../includes/cub3D.h"
+#include "../minilibx/minilibx-linux/mlx.h"
 
-//map size ?
-//touches
-
-int	main(int argc, char **argv)
+int	init_map(t_data *data)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
+	data->mlx = mlx_init();
+	if (data->mlx == NULL)
 	{
-		free_data(&data);
+		ft_putstr_fd("Error\nMlx init failed.\n", 2);
 		return (1);
 	}
-	if (init_map(&data) == 1)
+	data->window = mlx_new_window(data->mlx, 500, 500, "cub3D");
+	if (data->window == NULL)
 	{
-		free_data(&data);
+		ft_putstr_fd("Error\nMlx window failed.\n", 2);
 		return (1);
 	}
-	printf("argv = %s", argv[1]);
-	mlx_loop(data.mlx);
-
-	free_data(&data);
 	return (0);
 }

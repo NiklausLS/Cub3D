@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:37:45 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/01 23:54:23 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
+
 typedef struct s_data
 {
 	char	*north;
@@ -31,10 +32,14 @@ typedef struct s_data
 	char	*floor;
 	char	*ceiling;
 
+	void	*mlx;
+	void	*window;
+
 }	t_data;
 
 //INIT FUNCTIONS
 void	init_data(t_data *data);
+int		init_map(t_data *data);
 
 //FREE FUNCTIONS
 void	free_data(t_data *data);
