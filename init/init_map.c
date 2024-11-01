@@ -6,12 +6,15 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 23:34:15 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:10:46 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:19:01 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+/*
+ * Make the map window
+ */
 int	init_map(t_data *data)
 {
 	data->mlx = mlx_init();

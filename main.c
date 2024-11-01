@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:12:10 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:26:55 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	main(int argc, char **argv)
 		free_data(&data);
 		return (1);
 	}
-	printf("argv = %s", argv[1]);
+	//printf("argv = %s", argv[1]);
+	
+	mlx_hook(data.window, 17, 0, close_game, &data);
 	mlx_loop(data.mlx);
-
-	free_data(&data);
 	return (0);
 }

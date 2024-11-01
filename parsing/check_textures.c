@@ -6,12 +6,15 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:42:48 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:45:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:20:32 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+/*
+ * Check if all cardinal textures are there
+ */
 static void	get_textures_path(t_data *data, char *file)
 {
 	int		fd;
@@ -48,6 +51,9 @@ static void	get_textures_path(t_data *data, char *file)
 	printf("END of check_textures\n");
 }
 
+/*
+ * Check if all cardinal textures are there
+ */
 int	check_textures(t_data *data, char *file)
 {
 	get_textures_path(data, file);

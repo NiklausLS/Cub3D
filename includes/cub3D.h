@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:12:03 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:18:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ int	check_file_end(char *str);
 int	check_elements(char *file);
 //int	check_player(char *file);
 
-int		check_textures(t_data *data, char *file);
+int	check_textures(t_data *data, char *file);
 int	check_all(int argc, char **argv, t_data *data);
 
 //PROTECTED FUNCTIONS
 int	protected_open(char *str);
+
+//EVENTS FUNCTIONS
+int	close_game(t_data *data);
 
 #endif

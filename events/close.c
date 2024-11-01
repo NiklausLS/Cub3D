@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   protected_open.c                                   :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 20:42:12 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 00:20:49 by nileempo         ###   ########.fr       */
+/*   Created: 2024/11/02 00:14:35 by nileempo          #+#    #+#             */
+/*   Updated: 2024/11/02 00:25:41 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-//check if open is ok
-int	protected_open(char *str)
+/*
+ * This function will close the game when user clic on cross
+ */
+int	close_game(t_data *data)
 {
-	int	fd;
-
-	fd = open(str, O_RDONLY);
-	if (fd == -1)
-	{
-		write (2, "Error\nOpen failed\n", 19);
-		return (-1);
-	}
-	return (fd);
+	mlx_destroy_window(data->mlx, data->window);
+	//free_data(data);
+	exit(0);
 }

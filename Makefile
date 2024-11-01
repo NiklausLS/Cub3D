@@ -6,7 +6,7 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/12 20:22:49 by nileempo          #+#    #+#              #
-#    Updated: 2024/11/01 23:48:36 by nileempo         ###   ########.fr        #
+#    Updated: 2024/11/02 00:28:55 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = main.c \
 	parsing/protected_open.c \
 	parsing/check_textures.c \
 	parsing/check_all.c \
+	events/close.c \
 
 
 FLAGS = -Wall -Werror -Wextra -fsanitize=address

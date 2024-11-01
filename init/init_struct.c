@@ -6,12 +6,13 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/01 23:38:02 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/02 00:18:37 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
+//init everything to null in data structure
 void	init_data(t_data *data)
 {
 	data->north = NULL;
