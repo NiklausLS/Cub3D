@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 13:01:02 by nileempo         ###   ########.fr       */
+/*   Created: 2024/11/02 12:45:35 by nileempo          #+#    #+#             */
+/*   Updated: 2024/11/03 05:54:09 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3D.h"
+#include "../includes/cub3D.h"
 
-//map size ?
-//touches
-
-int	main(int argc, char **argv)
+/*
+ * handle the keyboard pression 
+*/
+int	key_press(int key, t_data *data)
 {
-	t_data	data;
-
-	init_data(&data);
-	if (check_all(argc, argv, &data) == 1)
-	{
-		free_data(&data);
-		return (1);
-	}
-	if (init_map(&data) == 1)
-	{
-		free_data(&data);
-		return (1);
-	}
-	//printf("argv = %s", argv[1]);
-	mlx_hook(data.window,2, 1L << 0, key_press, &data);
-	mlx_hook(data.window, 17, 0, close_game, &data);
-	mlx_loop(data.mlx);
+	if (key == ESC_KEY)
+		close_game(data);
+	/*else if (key == W_KEY)
+		up
+	else if (key == S_KEY)
+		down
+	else if (key == A_KEY)
+		left
+	else if (key == D_KEY)
+		right*/
 	return (0);
 }
