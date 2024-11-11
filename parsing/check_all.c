@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:08:23 by nileempo          #+#    #+#             */
-/*   Updated: 2024/10/31 15:41:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:33:13 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	check_all(int argc, char **argv, t_data *data)
 	if (check_file_end(argv[1]) == 1)
 		return (1);
 	if (check_textures(data, argv[1]) == 1)
+		return (1);
+	if (check_rbg(data, argv[1]) == 1)
 		return (1);
 	printf("check_all OK\n");
 	return (0);
