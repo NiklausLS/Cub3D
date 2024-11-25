@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/11 23:32:39 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:57:52 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		init_map(t_data *data);
 
 //FREE FUNCTIONS
 void	free_data(t_data *data);
+void	free_array(char **array);
 
 //PARSING FUNCTIONS
 int		check_if_dir(char *file);

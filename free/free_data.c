@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:22 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/01 23:51:44 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:57:58 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,17 @@ void	free_data(t_data *data)
 		free(data->mlx);
 	if (data->window)
 		free(data->window);
+}
+
+void	free_array(char **array)
+{
+	int		i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
