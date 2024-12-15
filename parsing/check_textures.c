@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:42:48 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/11 23:25:48 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/12/15 20:33:13 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ static void	get_textures_path(t_data *data, char *file)
 		if (ft_strncmp(line, "NO ", 3) == 0)
 		{
 			data->north = ft_strdup(line + 3);
-			printf("data->north = %s\n", data->north);
+			//printf("data->north = %s\n", data->north);
 		}
 		else if (ft_strncmp(line, "SO ", 3) == 0)
 		{
 			data->south = ft_strdup(line + 3);
-			printf("data->south = %s\n", data->south);
+			//printf("data->south = %s\n", data->south);
 		}
 		else if (ft_strncmp(line, "WE ", 3) == 0)
 		{
 			data->west = ft_strdup(line + 3);
-			printf("data->weast = %s\n", data->west);
+			//printf("data->weast = %s\n", data->west);
 		}
 		else if (ft_strncmp(line, "EA ", 3) == 0)
 		{
 			data->east = ft_strdup(line + 3);
-			printf("data->east = %s\n", data->east);
+			//printf("data->east = %s\n", data->east);
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
 	close (fd);
-	printf("END of check_textures\n");
+	//printf("END of check_textures\n");
 }
 
 /*
@@ -63,6 +63,6 @@ int	check_textures(t_data *data, char *file)
 		ft_putstr_fd("Error\nA texture path is missing.\n", 2);
 		return (1);
 	}
-	printf("check_textures OK\n");
+	//printf("check_textures OK\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 19:59:13 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/02 13:01:02 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:26:37 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 //map size ?
 //touches
+//finir wall sur le côté
+//check si on peut parcourir tous les 1 du bord
+
+//VOIR PROTECTIONS POUR LES MURS
+//AFFICHER TEXTURES DES MURS
 
 int	main(int argc, char **argv)
 {

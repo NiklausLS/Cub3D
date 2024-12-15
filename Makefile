@@ -6,7 +6,7 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/12 20:22:49 by nileempo          #+#    #+#              #
-#    Updated: 2024/11/11 23:27:52 by nileempo         ###   ########.fr        #
+#    Updated: 2024/12/09 17:43:38 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = main.c \
 	parsing/protected_open.c \
 	parsing/check_textures.c \
 	parsing/check_rbg.c \
+	parsing/check_borders.c \
 	parsing/check_all.c \
 	events/close.c \
 	events/keys.c \

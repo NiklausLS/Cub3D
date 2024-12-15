@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:18:33 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/27 21:00:49 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/12/15 20:32:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_rgb_path(t_data *data, char *file)
 	int		fd;
 	char	*line;
 
-	printf("START get_rbg_path\n");
+	//printf("START get_rbg_path\n");
 	fd = protected_open(file);
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -30,18 +30,18 @@ void	get_rgb_path(t_data *data, char *file)
 		if (ft_strncmp(line, "F ", 2) == 0)
 		{
 			data->floor = ft_strdup(line + 2);
-			printf("F = %s\n", data->floor);
+			//printf("F = %s\n", data->floor);
 		}
 		else if (ft_strncmp(line, "C ", 2) == 0)
 		{
 			data->ceiling = ft_strdup(line + 2);
-			printf("C = %s\n", data->ceiling);
+			//printf("C = %s\n", data->ceiling);
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
 	close (fd);
-	printf("END of get_rbg_path\n");
+	//printf("END of get_rbg_path\n");
 }
 
 /*
@@ -87,25 +87,21 @@ static int	check_split_rbg(char *nbr)
 	rbg_array = ft_split(nbr, ',');
 	if (!rbg_array)
 		return (1);
-	printf("check_split p1\n");
 	while (rbg_array[i])
 	{
-		printf("rbg_array[%d] = %s\n", i, rbg_array[i]);
 		if (check_nbr(rbg_array[i]) == 1)
 		{
-			printf("ERROR rbg_array[%d] = %s\n", i, rbg_array[i]);
+			printf("ERROR\nrbg_array[%d] = %s\n", i, rbg_array[i]);
 			free_array(rbg_array);
 			return (1);
 		}
 		i++;
 	}
-	//printf("check_split p2\n");
 	if (i != 3)
 	{
 		free_array(rbg_array);
 		return (1);
 	}
-	//printf("check_split end\n");
 	free_array(rbg_array);
 	return (0);
 }

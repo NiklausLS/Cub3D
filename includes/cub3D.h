@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:01:29 by nileempo          #+#    #+#             */
-/*   Updated: 2024/11/25 12:57:52 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/12/15 20:13:26 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct s_data
 
 	void	*mlx;
 	void	*window;
+
+	int		player;
+	char	**map;
 }	t_data;
 
 typedef struct s_image
@@ -62,6 +65,8 @@ int		check_argc(int argc);
 int		check_file_end(char *str);
 int		check_elements(char *file);
 //int	check_player(char *file);
+int		check_map(t_data *data, char *file);
+int		get_map(t_data *data, char *file);
 
 int		check_textures(t_data *data, char *file);
 int		check_rbg(t_data *data, char *file);
@@ -73,5 +78,7 @@ int		protected_open(char *str);
 //EVENTS FUNCTIONS
 int		close_game(t_data *data);
 int		key_press(int key, t_data *data);
+
+void	print_data(t_data *data);
 
 #endif
