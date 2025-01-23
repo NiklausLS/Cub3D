@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 23:34:15 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/02 13:47:55 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:12:16 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
  * Make the map window
  */
-int	init_map(t_data *data)
+/*int	init_map(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
@@ -30,4 +30,4 @@ int	init_map(t_data *data)
 		return (1);
 	}
 	return (0);
-}
+}*/

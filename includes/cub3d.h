@@ -102,8 +102,6 @@ typedef struct s_game
 
 typedef struct s_data
 {
-    void	*mlx;
-	void	*window;
 	char	*north;
 	char	*south;
 	char	*west;
@@ -112,7 +110,9 @@ typedef struct s_data
 	char	*ceiling;
 	int		player;
 	char	**map;
-    char    *start_map;
+	char	*start_map;
+	int		player_x;
+	int		player_y;
 }	t_data;
 
 int		init_game(t_game *game);
@@ -147,8 +147,10 @@ int		last_check(int argc, char **argv);
 
 //PROTECTED FUNCTIONS
 int		protected_open(char *str);
+char	**copy_map(char **map);
 
 //PRINT EVERYTHING
 void	print_data(t_data *data);
+void    print_map(char **map);
 
 #endif

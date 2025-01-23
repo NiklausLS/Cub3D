@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:08:23 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/20 22:19:02 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:08:40 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,9 +121,9 @@ int	last_check(int argc, char **argv)
 	if (check_all(argc, argv, &data) == 1)
 	{
 		printf("ERROR CHECK ALL\n");
-		free_data(&data);
+		//free_data(&data);
 		return (1);
 	}
-	free_data(&data);
+	//free_data(&data);
 	return (0);
 }

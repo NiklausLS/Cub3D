@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:55:05 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/20 22:26:06 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:33:57 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,35 @@ int	get_map(t_data *data, char *file)
 	printf("get_map OK\n");
 	print_data(data);
 	return (0);
+}
+
+char	**copy_map(char **map)
+{
+	char	**copy;
+	int		i;
+	int		height;
+
+	height = 0;
+	i = 0;
+	while (map[height])
+		height++;
+	copy = malloc(sizeof(char *) * (height + 1));
+	if (!copy)
+		return (NULL);
+	while (map[i])
+	{
+		copy[i] = ft_strdup(map[i]);
+		if (!copy[i])
+		{
+			while (i > 0)
+				free(copy[--i]);
+			free(copy);
+			return (NULL);
+		}
+		i++;
+	}
+	copy[i] = NULL;
+	printf("--- map_copy ---\n");
+	print_map(copy);
+	return (copy);
 }

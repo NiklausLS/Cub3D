@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/02 13:35:19 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:09:01 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	free_data(t_data *data)
 		free(data->floor);
 	if (data->ceiling)
 		free(data->ceiling);
-	if (data->mlx)
-		free(data->mlx);
-	if (data->window)
-		free(data->window);
 }
 
 void	free_array(char **array)

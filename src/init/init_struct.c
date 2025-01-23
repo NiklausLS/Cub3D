@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/07 00:13:31 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:29:47 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ void	init_data(t_data *data)
 	data->east = NULL;
 	data->floor = NULL;
 	data->ceiling = NULL;
-
-	data->mlx = NULL;
-	data->window = NULL;
-
 	data->player = 0;
 	data->map = NULL;
 	data->start_map = NULL;
+	data->player_x = -1;
+	data->player_y = -1;
 }
 
 void	print_data(t_data *data)
@@ -56,5 +54,22 @@ void	print_data(t_data *data)
 			printf("%s\n", data->map[i]);
 			i++;
 		}
+	}
+	if (data->player_x)
+		printf("data->player_x = %d\n", data->player_x);
+	if (data->player_y)
+		printf("data->player_y = %d\n", data->player_y);
+
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
 	}
 }

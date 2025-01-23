@@ -140,7 +140,7 @@ int	main(int argc, char **argv)
 	if (last_check(argc, argv) == 1)
 		return (1);
 
-	game.map = load_map();
+	/*game.map = load_map();
 	if (!game.map)
 		return (1);
 	init_player(&game);
@@ -156,6 +156,6 @@ int	main(int argc, char **argv)
 	mlx_hook(game.win, 3, 1L << 1, key_release, &game);
 	mlx_hook(game.win, 17, 0, close_window, &game);
 	mlx_loop_hook(game.mlx, render_frame, &game);
-	mlx_loop(game.mlx);
+	mlx_loop(game.mlx);*/
 	return (0);
 }
