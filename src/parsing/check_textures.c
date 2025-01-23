@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:42:48 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/02 13:28:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:29:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,27 @@ int	check_textures(t_data *data, char *file)
 {
 	get_textures_path(data, file);
 	if (!data->north || !data->south ||!data->west
-		|| !data->west)
+		|| !data->east)
 	{
 		ft_putstr_fd("Error\nA texture path is missing.\n", 2);
 		return (1);
 	}
 	//printf("check_textures OK\n");
+	return (0);
+}
+
+int	check_texture_path(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	if (str[i - 4] != '.' || str[i - 3] != 'x' || str[i - 2] != 'p'
+		|| str[i - 1] != 'm')
+	{
+		write (2, "ERROR\nThis is not a .xpm texture.\n", 35);
+		return (1);
+	}
 	return (0);
 }

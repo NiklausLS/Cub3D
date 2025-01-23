@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:08:23 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/07 00:16:23 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:19:02 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,32 @@ int	check_all(int argc, char **argv, t_data *data)
 	return (0);
 }*/
 
-int	get_map(t_data *data, char *file)
+/*int	get_map(t_data *data, char *file)
 {
 	int		fd;
 	char	*line;
 	int		i;
 
-	//printf("in get_map\n");
+
+	printf("in get_map\n");
 	i = 0;
 	fd = protected_open(file);
 	line = get_next_line(fd);
-	data->map = (char **)malloc(sizeof(char *) * (9999999 + 1));
+	data->map = (char **)malloc(sizeof(char *)
+			* (line_nbr(data->start_map, file) + 1));
 	if (!data->map)
 		return (1);
 	line = get_next_line(fd);
+	//int j = 0;
+	//puts("test");
 	while (line != NULL)
 	{
-		if (ft_strncmp(line, data->start_map, ft_strlen(data->ceiling)) == 0)
+		//puts("loop");
+		//printf("line %d = %s\n", j, line);
+		//j++;
+		if (ft_strncmp(line, data->start_map, ft_strlen(data->start_map)))
 		{
+			//printf("data->stat_map = %s\n", data->start_map);
 			//printf("line = %s\n", line);
 			//printf("data->start_map = %s\n", data->start_map);
 			free(line);
@@ -90,6 +98,7 @@ int	get_map(t_data *data, char *file)
 			while (line != NULL)
 			{
 				data->map[i++] = ft_strdup(line);
+				//printf("MAP line = %s\n", line);
 				free(line);
 				line = get_next_line(fd);
 			}
@@ -99,10 +108,10 @@ int	get_map(t_data *data, char *file)
 	}
 	data->map[i] = NULL;
 	close (fd);
-	//printf("get_map OK\n");
+	printf("get_map OK\n");
 	print_data(data);
 	return (0);
-}
+}*/
 
 int	last_check(int argc, char **argv)
 {

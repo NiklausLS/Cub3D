@@ -4,6 +4,7 @@ SRCS = src/main.c src/init.c src/hooks.c src/render.c \
 	src/parsing/check_file.c src/parsing/protected_open.c \
 	src/parsing/check_textures.c src/parsing/check_rbg.c \
 	src/parsing/check_borders.c src/parsing/check_all.c \
+	src/parsing/check_map.c \
 	src/init/init_struct.c src/init/init_map.c \
 	src/free/free_data.c\
 

@@ -134,6 +134,7 @@ void	free_array(char **array);
 int		check_if_dir(char *file);
 int		check_argc(int argc);
 int		check_file_end(char *str);
+int     check_texture_path(char *str);
 int		check_elements(char *file);
 //int	check_player(char *file);
 int		check_map(t_data *data, char *file);
@@ -142,7 +143,7 @@ int		get_map(t_data *data, char *file);
 int		check_textures(t_data *data, char *file);
 int		check_rbg(t_data *data, char *file);
 int		check_all(int argc, char **argv, t_data *data);
-int     last_check(int argc, char **argv);
+int		last_check(int argc, char **argv);
 
 //PROTECTED FUNCTIONS
 int		protected_open(char *str);

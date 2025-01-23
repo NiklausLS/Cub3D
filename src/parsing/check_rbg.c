@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:18:33 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/07 00:13:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/20 22:18:50 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	get_rgb_path(t_data *data, char *file)
 		{
 			data->start_map = ft_strdup(line);
 			data->ceiling = ft_strdup(line + 2);
-			//printf("C = %s\n", data->ceiling);
+			printf("C = %s\n", data->ceiling);
 		}
 		free(line);
 		line = get_next_line(fd);
 	}
 	close (fd);
-	//printf("END of get_rbg_path\n");
+	printf("END of get_rbg_path\n");
 }
 
 /*
