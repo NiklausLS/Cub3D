@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 21:29:47 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:36:03 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,15 @@ void	print_map(char **map)
 		printf("%s\n", map[i]);
 		i++;
 	}
+}
+
+void	init_end_parsing(t_game *game, t_data *data)
+{
+	game->map = data->map;
+	game->textures[0].data = data->north;
+	game->textures[1].data = data->south;
+	game->textures[2].data = data->west;
+	game->textures[3].data = data->east;
+	game->ceiling_color = get_rgb_value(data->ceiling);
+	game->floor_color = get_rgb_value(data->floor);
 }

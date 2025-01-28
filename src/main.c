@@ -137,7 +137,7 @@ int	main(int argc, char **argv)
 	
 	memset(&game, 0, sizeof(game));
 
-	if (last_check(argc, argv) == 1)
+	if (last_check(argc, argv, &game) == 1)
 		return (1);
 
 	/*game.map = load_map();

@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:08:23 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 21:08:40 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:40:40 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 int	check_all(int argc, char **argv, t_data *data)
 {
+	if (!argv || !data)
+		return (1);
 	if (check_argc(argc) == 1)
 		return (1);
 	//printf("after check_argc\n");
@@ -26,13 +28,15 @@ int	check_all(int argc, char **argv, t_data *data)
 	if (check_file_end(argv[1]) == 1)
 		return (1);
 	//printf("after check_file_end\n");
-	if (check_textures(data, argv[1]) == 1)
+	if (check_last_elem(argv[1]) == 1)
 		return (1);
 	printf("after check_textures\n");
 	if (check_rbg(data, argv[1]) == 1)
 		return (1);
 	printf("after check_rbg\n");
 	if (check_map(data, argv[1]) == 1)
+		return (1);
+	if (check_textures(data, argv[1]) == 1)
 		return (1);
 	printf("after check_map\n");
 	print_data(data);
@@ -113,7 +117,7 @@ int	check_all(int argc, char **argv, t_data *data)
 	return (0);
 }*/
 
-int	last_check(int argc, char **argv)
+int	last_check(int argc, char **argv, t_game *game)
 {
 	t_data	data;
 
@@ -121,9 +125,10 @@ int	last_check(int argc, char **argv)
 	if (check_all(argc, argv, &data) == 1)
 	{
 		printf("ERROR CHECK ALL\n");
-		//free_data(&data);
+		free_data(&data);
 		return (1);
 	}
-	//free_data(&data);
+	init_end_parsing(game, &data);
+	free_data(&data);
 	return (0);
 }

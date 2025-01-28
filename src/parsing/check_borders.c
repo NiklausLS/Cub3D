@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:05:17 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 21:40:37 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/24 00:53:23 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,91 +16,68 @@
 //ISOLER LA MAP
 // SUPPRIMER CE QUI EST DEJA CHECK OU CHERCHER DEBUT MAP ?
 
-static int	check_wrongs_elem(char c)
+static int	check_fill(char **map, int x, int y)
 {
-	if (c == '0' || c == '1' || c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W' || c == ' ' || c == '\n')
+	int	ret;
+
+	printf("START check_fill\n");
+	ret = 0;
+	if (x < 0 || y < 0 || !map[y] || !map[y][x])
 		return (0);
-	else
-		ft_putstr_fd("ERROR:\nWrong element in map\n", 2);
-	return (1);
+	if (map[y][x] != '1')
+		return (0);
+	map[y][x] = '2';
+
+	ret = check_fill(map, x, y + 1);
+	if (!ret)
+		ret = check_fill(map, x, y - 1);
+	if (!ret)
+		ret = check_fill(map, x + 1, y);
+	if (!ret)
+		ret = check_fill(map, x - 1, y);
+	return (ret);
 }
 
-static int	check_player(t_data *data, char **map)
+static int	get_first_wall(char **map)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (map[i + 1])
+	i = 0;
+	j = 0;
+	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (check_wrongs_elem(map[i][j]) == 1)
-				return (1);
-			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'E'
-				|| map[i][j] == 'W')
+			if (map[i][j] == '1')
 			{
-				data->player++;
-				data->player_x = j;
-				data->player_y = i;
+				map[i][j] = '9';
+				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	if (data->player != 1)
-	{
-		printf("data->player = %d\n", data->player);
-		ft_putstr_fd("ERROR\nWrong number of player\n", 2);
-		return (1);
-	}
-	return (0);
+	return (1);
 }
 
-static int	check_fill(char **map, int x, int y)
-{
-	printf("START check_fill\n");
-	if (x < 0 || y < 0 || !map[y] || !map[y][x]
-		|| map[y][x] == '1' || map[y][x] == 'M')
-		return (0);
-	if (map[y][x] == ' ')
-		return (1);
-	map[y][x] = 'M';
-	if (check_fill(map, x + 1, y) || check_fill(map, x - 1, y)
-		|| check_fill(map, x, y + 1) || check_fill(map, x, y - 1))
-	{
-		ft_putstr_fd("ERROR:\nMap is invalid\n", 2);
-		return (1);
-	}
-	printf("--- END check_fill\n");
-	return (0);
-}
-
-static int	check_walls(char **map)
+static int	flood_walls(char **map)
 {
 	int	i;
-	int	right;
+	int	j;
 
 	i = 0;
-	printf("start check_wall\n");
+	if (get_first_wall(map))
+		return (1);
 	while (map[i])
 	{
-		right = 0;
-		while (map[i][right])
-			right++;
-		right--;
-		if (map[i][0] != '1' && map[i][0] != ' ' && map[i][0] != '\n')
+		j = 0;
+		while (map[i][j])
 		{
-			ft_putstr_fd("ERROR:\nWall is invalid\n", 2);
-			return (1);
-		}
-		if (map[i][right] != '1' && map[i][right] != ' '
-			&& map[i][right] != '\n')
-		{
-			ft_putstr_fd("ERROR:\nWall is invalid\n", 2);
-			return (1);
+			if (map[i][j] == '1' && check_fill(map, i, j))
+				return (1);
+			j++;
 		}
 		i++;
 	}
@@ -116,12 +93,13 @@ int	check_map(t_data *data, char *file)
 	if (check_player(data, data->map) == 1)
 		return (1);
 	printf("-- after check_middle\n");
-	if (check_walls(data->map) == 1)
-		return (1);
-
 	copy = copy_map(data->map);
-	if (check_fill(copy, data->player_x, data->player_y) == 1)
-		
+	if (flood_walls(copy) == 1)
+	{
+		ft_putstr_fd("ERROR:\nMap is not surrounded\n", 2);
+		free_array(copy);
+		return (1);
+	}
 	print_map(copy);
 	free_array(copy);
 	printf("-- after check_walls\n");

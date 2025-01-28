@@ -125,6 +125,7 @@ int		close_window(t_game *game);
 //INIT FUNCTIONS
 void	init_data(t_data *data);
 int		init_map(t_data *data);
+void	init_end_parsing(t_game *game, t_data *data);
 
 //FREE FUNCTIONS
 void	free_data(t_data *data);
@@ -134,16 +135,17 @@ void	free_array(char **array);
 int		check_if_dir(char *file);
 int		check_argc(int argc);
 int		check_file_end(char *str);
-int     check_texture_path(char *str);
-int		check_elements(char *file);
-//int	check_player(char *file);
+int		check_t_path(char *str);
+int		get_rgb_value(char *str);
 int		check_map(t_data *data, char *file);
+int		check_player(t_data *data, char **map);
 int		get_map(t_data *data, char *file);
+int		check_last_elem(char *file);
 
 int		check_textures(t_data *data, char *file);
 int		check_rbg(t_data *data, char *file);
 int		check_all(int argc, char **argv, t_data *data);
-int		last_check(int argc, char **argv);
+int		last_check(int argc, char **argv, t_game *game);
 
 //PROTECTED FUNCTIONS
 int		protected_open(char *str);

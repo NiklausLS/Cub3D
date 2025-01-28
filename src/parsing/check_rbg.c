@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:18:33 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/20 22:18:50 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:33:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,31 @@ int	check_rbg(t_data *data, char *file)
 		return (1);
 	}
 	return (0);
+}
+
+/*
+ * Turns chars into int for mate
+ */
+int	get_rgb_value(char *str)
+{
+	char	**rbg;
+	int		red;
+	int		blue;
+	int		green;
+	int		res;
+
+	rbg = ft_split(str, ',');
+	if (!rbg)
+		return (0);
+	red = ft_atoi(ft_strtrim(rbg[0], " \t\n\r"));
+	blue = ft_atoi(ft_strtrim(rbg[1], " \t\n\r"));
+	green = ft_atoi(ft_strtrim(rbg[2], " \t\n\r"));
+	res = (red << 16) | (green << 8) | blue;
+
+	printf("red = %d\n", red);
+	printf("blue = %d\n", blue);
+	printf("green = %d\n", green);
+	printf("res = %d\n", res);
+	free_array(rbg);
+	return (res);
 }
