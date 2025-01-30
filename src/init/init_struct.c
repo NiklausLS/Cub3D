@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/28 10:36:03 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:21:12 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 //init everything to null in data structure
 void	init_data(t_data *data)
@@ -33,7 +33,7 @@ void	print_data(t_data *data)
 	int	i;
 
 	i = 0;
-	/*if (data->north)
+	if (data->north)
 		printf("data->north = %s\n", data->north);
 	if (data->south)
 		printf("data->south = %s\n", data->south);
@@ -46,7 +46,7 @@ void	print_data(t_data *data)
 	if (data->ceiling)
 		printf("data->ceiling = %s\n", data->ceiling);
 	if (data->player)
-		printf("data->player = %d\n", data->player);*/
+		printf("data->player = %d\n", data->player);
 	if (data->map)
 	{
 		while (data->map[i])
@@ -55,11 +55,6 @@ void	print_data(t_data *data)
 			i++;
 		}
 	}
-	if (data->player_x)
-		printf("data->player_x = %d\n", data->player_x);
-	if (data->player_y)
-		printf("data->player_y = %d\n", data->player_y);
-
 }
 
 void	print_map(char **map)
@@ -76,11 +71,12 @@ void	print_map(char **map)
 
 void	init_end_parsing(t_game *game, t_data *data)
 {
+	memset(&game->textures, 0, sizeof(game->textures));
 	game->map = data->map;
-	game->textures[0].data = data->north;
-	game->textures[1].data = data->south;
-	game->textures[2].data = data->west;
-	game->textures[3].data = data->east;
+	game->textures[0].path = ft_strdup(data->north);
+	game->textures[1].path = ft_strdup(data->south);
+	game->textures[2].path = ft_strdup(data->west);
+	game->textures[3].path = ft_strdup(data->east);
 	game->ceiling_color = get_rgb_value(data->ceiling);
 	game->floor_color = get_rgb_value(data->floor);
 }

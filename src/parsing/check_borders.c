@@ -6,28 +6,22 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:05:17 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/24 00:53:23 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:23:47 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-
-//TO DO
-//ISOLER LA MAP
-// SUPPRIMER CE QUI EST DEJA CHECK OU CHERCHER DEBUT MAP ?
+#include "../../includes/cub3d.h"
 
 static int	check_fill(char **map, int x, int y)
 {
 	int	ret;
 
-	printf("START check_fill\n");
 	ret = 0;
 	if (x < 0 || y < 0 || !map[y] || !map[y][x])
 		return (0);
 	if (map[y][x] != '1')
 		return (0);
 	map[y][x] = '2';
-
 	ret = check_fill(map, x, y + 1);
 	if (!ret)
 		ret = check_fill(map, x, y - 1);
@@ -86,13 +80,11 @@ static int	flood_walls(char **map)
 
 int	check_map(t_data *data, char *file)
 {
-	char 	**copy;
+	char	**copy;
 
 	get_map(data, file);
-	printf("-- after get_map\n");
 	if (check_player(data, data->map) == 1)
 		return (1);
-	printf("-- after check_middle\n");
 	copy = copy_map(data->map);
 	if (flood_walls(copy) == 1)
 	{
@@ -102,6 +94,5 @@ int	check_map(t_data *data, char *file)
 	}
 	print_map(copy);
 	free_array(copy);
-	printf("-- after check_walls\n");
 	return (0);
 }

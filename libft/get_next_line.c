@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:58:37 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 21:12:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:20:02 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ char	*get_next_line(int fd)
 	if (!line && !memory)
 		return (NULL);
 	memory = get_last(memory);
-	//free(memory);
+	free(memory);
 	return (line);
 }

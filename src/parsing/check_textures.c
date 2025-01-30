@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:42:48 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/24 00:10:16 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:30:04 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 /*
  * Check if all cardinal textures are there
@@ -27,31 +27,18 @@ static void	get_textures_path(t_data *data, char *file)
 	{
 		tmp = ft_strtrim(line, " \n");
 		if (ft_strncmp(tmp, "NO ", 3) == 0)
-		{
-			data->north = ft_strdup(line + 3);
-			//printf("data->north = %s\n", data->north);
-		}
+			data->north = ft_strdup(tmp + 3);
 		else if (ft_strncmp(tmp, "SO ", 3) == 0)
-		{
-			data->south = ft_strdup(line + 3);
-			//printf("data->south = %s\n", data->south);
-		}
-		else if (ft_strncmp(line, "WE ", 3) == 0)
-		{
-			data->west = ft_strdup(line + 3);
-			//printf("data->weast = %s\n", data->west);
-		}
-		else if (ft_strncmp(line, "EA ", 3) == 0)
-		{
-			data->east = ft_strdup(line + 3);
-			//printf("data->east = %s\n", data->east);
-		}
+			data->south = ft_strdup(tmp + 3);
+		else if (ft_strncmp(tmp, "WE ", 3) == 0)
+			data->west = ft_strdup(tmp + 3);
+		else if (ft_strncmp(tmp, "EA ", 3) == 0)
+			data->east = ft_strdup(tmp + 3);
 		free(line);
 		free(tmp);
 		line = get_next_line(fd);
 	}
 	close (fd);
-	//printf("END of check_textures\n");
 }
 
 /*
@@ -69,7 +56,6 @@ int	check_textures(t_data *data, char *file)
 	if (check_t_path(data->east) == 1 || check_t_path(data->west) == 1
 		|| check_t_path(data->north) == 1 || check_t_path(data->south) == 1)
 		return (1);
-	//printf("check_textures OK\n");
 	return (0);
 }
 
@@ -77,19 +63,11 @@ int	check_t_path(char *str)
 {
 	char	*tmp;
 	int		i;
-	//int		fd;
 
 	tmp = ft_strtrim(str, " \n");
 	if (!tmp)
 		return (1);
 	i = ft_strlen(tmp);
-	/*fd = protected_open(tmp);
-	if (fd == -1)
-	{
-		write (2, "ERROR\nCan't be opened.\n", 24);
-		return (1);
-	}*/
-	//printf("tmp = %s\n", tmp);
 	if (i < 4 || tmp[i - 4] != '.' || tmp[i - 3] != 'x' || tmp[i - 2] != 'p'
 		|| tmp[i - 1] != 'm')
 	{

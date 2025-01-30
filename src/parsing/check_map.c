@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:55:05 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 21:33:57 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:27:23 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	check_line(char *line)
 {
@@ -46,7 +46,6 @@ static int	count_line(char *file)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	printf("-- count = %d\n", count);
 	return (count);
 }
 
@@ -84,8 +83,6 @@ int	get_map(t_data *data, char *file)
 	}
 	data->map[i] = NULL;
 	close(fd);
-	printf("get_map OK\n");
-	print_data(data);
 	return (0);
 }
 
@@ -115,7 +112,5 @@ char	**copy_map(char **map)
 		i++;
 	}
 	copy[i] = NULL;
-	printf("--- map_copy ---\n");
-	print_map(copy);
 	return (copy);
 }

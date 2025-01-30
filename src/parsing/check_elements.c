@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:33:12 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/24 00:34:24 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:26:27 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 static int	check_wrongs_elem(char c)
 {
@@ -20,6 +20,16 @@ static int	check_wrongs_elem(char c)
 	else
 		ft_putstr_fd("ERROR:\nWrong element in map\n", 2);
 	return (1);
+}
+
+static int	check_player_nbr(t_data *data)
+{
+	if (data->player != 1)
+	{
+		ft_putstr_fd("ERROR\nWrong number of player\n", 2);
+		return (1);
+	}
+	return (0);
 }
 
 int	check_player(t_data *data, char **map)
@@ -46,12 +56,8 @@ int	check_player(t_data *data, char **map)
 		}
 		i++;
 	}
-	if (data->player != 1)
-	{
-		//printf("data->player = %d\n", data->player);
-		ft_putstr_fd("ERROR\nWrong number of player\n", 2);
+	if (check_player_nbr(data) == 1)
 		return (1);
-	}
 	return (0);
 }
 
@@ -60,7 +66,7 @@ static int	map_line(char *line)
 	int	i;
 
 	i = 0;
-	if (line[0] == ' ' | line[0] == '\n' || line[0] == '\t')
+	if (line[0] == ' ' || line[0] == '\n' || line[0] == '\t')
 		return (0);
 	if (line[0] == 'N' || line[0] == 'S' || line[0] == 'E'
 		|| line[0] == 'W' || line[0] == 'F' || line[0] == 'C')

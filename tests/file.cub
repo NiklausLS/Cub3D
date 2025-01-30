@@ -1,13 +1,14 @@
-NO ./path_to_the_north_texture.xpm
+NO ./cobblestone.xpm
 
-   SO    ./path_to_the_south_texture.xpm
+SO ./cobblestone.xpm
 
-WE ./path_to_the_west_texture.xpm
+WE ./cobblestone.xpm
 
-EA ./path_to_the_east_texture.xpm
-F 220,150,0
+EA ./cobblestone.xpm
 
-C 225,30,0
+F 50,50,50
+
+C 119,254,181
 
      1111111111
 111111000000001

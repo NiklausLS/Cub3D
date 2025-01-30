@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/30 12:19:06 by nileempo          #+#    #+#             */
+/*   Updated: 2025/01/30 12:19:07 by nileempo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -9,7 +21,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <fcntl.h>
-# include "../src/minilibx/minilibx_linux/mlx.h"
+# include "../minilibx/minilibx_linux/mlx.h"
 # include "../libft/libft.h"
 
 # define WIN_WIDTH 2000
@@ -74,6 +86,7 @@ typedef struct s_texture
     int     line;       // Taille d'une ligne en octets
     int     endian;     // Endianness (0 ou 1)
 	char	*pix;
+    char    *path;
 	double	pos;
 	int		x;
 	int		y;
@@ -116,11 +129,19 @@ typedef struct s_data
 }	t_data;
 
 int		init_game(t_game *game);
+void	init_player(t_game *game);
+void	load_textures(t_game *game);
+
 void	handle_events(t_game *game);
 int		render_frame(t_game *game);
 int		key_press(int keycode, t_game *game);
 int		key_release(int keycode, t_game *game);
+void	update_player_position(t_game *game);
 int		close_window(t_game *game);
+
+void	    put_pixel_to_image(t_img *img, int x, int y, int color);
+void	    render_ceiling_and_floor(t_game *game);
+t_texture	*define_wall_texture(t_game *game, t_ray *ray);
 
 //INIT FUNCTIONS
 void	init_data(t_data *data);
