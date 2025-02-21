@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:59:51 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/23 22:49:11 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:56:28 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_gnl_strjoin(char *memory, char *buf)
 		dest[i + j] = buf[j];
 	dest[i + j] = '\0';
 	free(memory);
+	memory = NULL;
 	return (dest);
 }
 

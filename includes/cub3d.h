@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:19:06 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:19:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/20 18:13:08 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,8 @@ int		last_check(int argc, char **argv, t_game *game);
 //PROTECTED FUNCTIONS
 int		protected_open(char *str);
 char	**copy_map(char **map);
+char	*protected_trim(char *str);
+void	*get_rgb(char **array, int *nbr);
 
 //PRINT EVERYTHING
 void	print_data(t_data *data);

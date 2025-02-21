@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_data.c                                        :+:      :+:    :+:   */
+/*   trim_rgb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 15:16:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/20 17:51:51 by nileempo         ###   ########.fr       */
+/*   Created: 2025/02/20 18:04:36 by nileempo          #+#    #+#             */
+/*   Updated: 2025/02/21 16:50:38 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	free_data(t_data *data)
+void	*get_rgb(char **array, int *nbr)
 {
-	if (!data)
-		return ;
-	if (data->north)
-		free(data->north);
-	if (data->south)
-		free(data->south);
-	if (data->west)
-		free(data->west);
-	if (data->east)
-		free(data->east);
-	if (data->floor)
-		free(data->floor);
-	if (data->ceiling)
-		free(data->ceiling);
-}
+	char	*trim;
 
-void	free_array(char **array)
-{
-	int		i;
-
-	i = 0;
-	while (array[i])
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
+	trim = protected_trim(array[0]);
+	if (trim)
+		nbr[0] = ft_atoi(trim);
+	else
+		nbr[0] = 0;
+	free(trim);
+	trim = protected_trim(array[1]);
+	if (trim)
+		nbr[1] = ft_atoi(trim);
+	else
+		array[1] = 0;
+	free(trim);
+	trim = protected_trim(array[2]);
+	if (trim)
+		nbr[2] = ft_atoi(trim);
+	else
+		nbr[2] = 0;
+	free(trim);
+	return (NULL);
 }

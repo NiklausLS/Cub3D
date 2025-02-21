@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:18:33 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:28:55 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:48:39 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,19 +119,15 @@ int	check_rbg(t_data *data, char *file)
  */
 int	get_rgb_value(char *str)
 {
-	char	**rbg;
-	int		red;
-	int		blue;
-	int		green;
+	char	**array;
+	int		rgb[3];
 	int		res;
 
-	rbg = ft_split(str, ',');
-	if (!rbg)
+	array = ft_split(str, ',');
+	if (!array)
 		return (0);
-	red = ft_atoi(ft_strtrim(rbg[0], " \t\n\r"));
-	blue = ft_atoi(ft_strtrim(rbg[1], " \t\n\r"));
-	green = ft_atoi(ft_strtrim(rbg[2], " \t\n\r"));
-	res = (red << 16) | (blue << 8) | green;
-	free_array(rbg);
+	get_rgb(array, rgb);
+	res = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+	free_array(array);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:05:17 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:23:47 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:50:05 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	check_map(t_data *data, char *file)
 	if (check_player(data, data->map) == 1)
 		return (1);
 	copy = copy_map(data->map);
+	if (!copy)
+		return (1);
 	if (flood_walls(copy) == 1)
 	{
 		ft_putstr_fd("ERROR:\nMap is not surrounded\n", 2);

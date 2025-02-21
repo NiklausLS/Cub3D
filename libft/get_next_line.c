@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:58:37 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:20:02 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:02:11 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@ static char	*get_buf(int fd, char *memory)
 		if (rd == -1)
 		{
 			free(memory);
+			memory = NULL;
 			free(buf);
 			return (NULL);
 		}
 		buf[rd] = '\0';
 		memory = ft_gnl_strjoin(memory, buf);
+		if (!memory)
+		{
+			free(buf);
+			return (NULL);
+		}
 		if (ft_gnl_strchr(buf, '\n'))
 			break ;
 	}
@@ -96,6 +102,7 @@ char	*get_next_line(int fd)
 {
 	static char	*memory;
 	char		*line;
+	char		*tmp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -103,9 +110,16 @@ char	*get_next_line(int fd)
 	if (!memory)
 		return (NULL);
 	line = gt_line(memory);
-	if (!line && !memory)
+	if (!line)
 		return (NULL);
+	tmp = memory;
 	memory = get_last(memory);
-	free(memory);
+	if (!memory)
+	{
+		tmp = NULL;
+		return (line);
+	}
+	free(tmp);
+	tmp = NULL;
 	return (line);
 }

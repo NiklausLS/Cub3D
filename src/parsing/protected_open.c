@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   protected_open.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuchard <chuchard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 20:42:12 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/28 11:33:17 by chuchard         ###   ########.fr       */
+/*   Updated: 2025/02/20 18:11:07 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,14 @@ int	protected_open(char *str)
 		return (-1);
 	}
 	return (fd);
+}
+
+char	*protected_trim(char *str)
+{
+	char	*trim;
+
+	trim = ft_strtrim(str, " \t\n\r");
+	if (!trim)
+		return (NULL);
+	return (trim);
 }
