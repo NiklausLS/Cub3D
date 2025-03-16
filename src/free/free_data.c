@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/20 17:51:51 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:09:33 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	free_data(t_data *data)
 		free(data->floor);
 	if (data->ceiling)
 		free(data->ceiling);
+	if (data->map_copy)
+		free_array(data->map_copy);
 }
 
 void	free_array(char **array)

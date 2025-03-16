@@ -14,6 +14,7 @@ SRCS = src/main.c \
 	src/parsing/check_map.c \
 	src/parsing/check_elements.c \
 	src/parsing/trim_rgb.c \
+	src/parsing/check_copy.c \
 	src/init/init_struct.c \
 	src/init/init_map.c \
 	src/init/init.c \

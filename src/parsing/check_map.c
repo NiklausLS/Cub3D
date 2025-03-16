@@ -6,11 +6,42 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:55:05 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:27:23 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:55:57 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+/*int	check_player(t_data *data, char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	data->player = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N' || map[i][j] == 'S'
+				|| map[i][j] == 'E' || map[i][j] == 'W')
+			{
+				data->player++;
+				data->player_x = j;
+				data->player_y = i;
+			}
+			j++;
+		}
+		i++;
+	}
+	if (data->player != 1)
+	{
+		ft_putstr_fd("ERROR:\nInvalid player count\n", 2);
+		return (1);
+	}
+	return (0);
+}*/
 
 static int	check_line(char *line)
 {
@@ -49,19 +80,6 @@ static int	count_line(char *file)
 	return (count);
 }
 
-static int	copy_line(t_data *data, char *line, int *i)
-{
-	if (!check_line(line))
-	{
-		data->map[*i] = ft_strdup(line);
-		if (data->map[*i] == NULL)
-			return (1);
-		*i = *i + 1;
-		return (0);
-	}
-	return (0);
-}
-
 int	get_map(t_data *data, char *file)
 {
 	int		fd;
@@ -76,8 +94,13 @@ int	get_map(t_data *data, char *file)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		if (copy_line(data, line, &i) == 1)
-			return (1);
+		if (!check_line(line))
+		{
+			data->map[i] = ft_strdup(line);
+			if (data->map[i] == NULL)
+				return (1);
+			i++;
+		}
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -86,31 +109,13 @@ int	get_map(t_data *data, char *file)
 	return (0);
 }
 
-char	**copy_map(char **map)
+int	check_map(t_data *data, char *file)
 {
-	char	**copy;
-	int		i;
-	int		height;
-
-	height = 0;
-	i = 0;
-	while (map[height])
-		height++;
-	copy = malloc(sizeof(char *) * (height + 1));
-	if (!copy)
-		return (NULL);
-	while (map[i])
-	{
-		copy[i] = ft_strdup(map[i]);
-		if (!copy[i])
-		{
-			while (i > 0)
-				free(copy[--i]);
-			free(copy);
-			return (NULL);
-		}
-		i++;
-	}
-	copy[i] = NULL;
-	return (copy);
+	if (get_map(data, file) == 1)
+		return (1);
+	if (check_player(data, data->map) == 1)
+		return (1);
+	if (check_copy(data) == 1)
+		return (1);
+	return (0);
 }

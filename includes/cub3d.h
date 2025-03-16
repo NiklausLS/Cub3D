@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:19:06 by nileempo          #+#    #+#             */
-/*   Updated: 2025/02/20 18:13:08 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/16 21:59:39 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct s_data
 	char	*ceiling;
 	int		player;
 	char	**map;
+    char    **map_copy;
 	char	*start_map;
 	int		player_x;
 	int		player_y;
@@ -162,6 +163,8 @@ int		check_map(t_data *data, char *file);
 int		check_player(t_data *data, char **map);
 int		get_map(t_data *data, char *file);
 int		check_last_elem(char *file);
+int		check_copy(t_data *data);
+int		check_walls(char **copy, int i, int j, int row_count);
 
 int		check_textures(t_data *data, char *file);
 int		check_rbg(t_data *data, char *file);

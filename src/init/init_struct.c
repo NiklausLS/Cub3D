@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:13:22 by nileempo          #+#    #+#             */
-/*   Updated: 2025/01/30 12:21:12 by nileempo         ###   ########.fr       */
+/*   Updated: 2025/03/16 22:00:01 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_data(t_data *data)
 	data->start_map = NULL;
 	data->player_x = -1;
 	data->player_y = -1;
+	data->map_copy = NULL;
 }
 
 void	print_data(t_data *data)
